@@ -6,29 +6,29 @@
    - Profile View: `/profile/`
 
 2. **Contacts Views:**
-   - Contacts List View: `/contacts/`
-   - Add Contact View: `/contacts/add/`
-   - Delete Contact View: `/contacts/<contact_id>/delete/`
+   - [GET]Contacts List View: `/contacts/`
+   - [POST]Add Contact View: `/contacts/`
+   - [DELETE]Delete Contact View: `/contacts/<contact_id>/`
 
 3. **Calendar Views:**
-   - Calendar Creation View: `/calendar/create/`
-   - Calendar Detail View: `/calendar/<calendar_id>/`
-   - Edit Calendar View: `/calendar/<calendar_id>/edit/`
-   - Delete Calendar View: `/calendar/<calendar_id>/delete/`
+   - [GET]Calendar Detail View: `/calendar/<calendar_id>/`
+   - [POST]Calendar Creation View: `/calendar/`
+   - [PUT]Edit Calendar View: `/calendar/<calendar_id>/`
+   - [DELETE]Delete Calendar View: `/calendar/<calendar_id>/`
 
 5. **Time Block Views:**
-   - Time Blocks List View: `/calendar/<calendar_id>/timeblocks/`
-   - Add Time Block View: `/calendar/<calendar_id>/timeblocks/add/`
-   - Edit Time Block View: `/timeblocks/<timeblock_id>/edit/`
-   - Delete Time Block View: `/timeblocks/<timeblock_id>/delete/`
+   - [GET]Time Blocks List View: `/calendar/<calendar_id>/timeblocks/`
+   - [POST]Add Time Block View: `/calendar/<calendar_id>/timeblocks/`
+   - [PUT]Edit Time Block View: `/timeblocks/<timeblock_id>/`
+   - [DELETE]Delete Time Block View: `/timeblocks/<timeblock_id>/`
 
 6. **Invitation Views:**
-   - [time-permitting] Invitation Email View: `/meeting/<meeting_id>/invite/`
-   - [time-permitting] Respond to Invitation View: `/meeting/<meeting_id>/respond/`
+   - [time-permitting] [GET]Invitation Email View: `/meeting/<meeting_id>/invitation/`
+   - [time-permitting] [POST]Respond to Invitation View: `/meeting/<meeting_id>/response/`
 
 7. **Scheduling Views:**
-   - [time-permitting] Suggested Schedules View: `/meeting/<meeting_id>/suggestions/`
-   - [time-permitting] Select Schedule View: `/meeting/<meeting_id>/suggestions/select/`
+   - [time-permitting] [GET]Suggested Schedules View: `/meeting/<meeting_id>/suggestion/`
+   - [time-permitting] [POST]Select Schedule View: `/meeting/<meeting_id>/suggestion/`
 
 8. **Reminder Views:**
    - [time-permitting] Reminder View: `/reminder/` 
