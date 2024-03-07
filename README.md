@@ -10,7 +10,7 @@
    - [POST]Add Contact View: `/contacts/`
    - [DELETE]Delete Contact View: `/contacts/<contact_id>/`
 
-3. **Calendar Views:**
+3. **Calendar Views:** [Calender CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/1#issue-2172656711)
    - [GET]Calendar Detail View: `/calendar/<calendar_id>/`
    - [POST]Calendar Creation View: `/calendar/`
    - [PUT]Edit Calendar View: `/calendar/<calendar_id>/`
