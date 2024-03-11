@@ -1,5 +1,7 @@
 ## CSC309 Views and URLs
 
+
+
 1. **User Authentication Views:**
    - Login View: `/login/`
    - [POST] Register User: `/accounts/users/`
@@ -12,6 +14,7 @@
 
 3. **Calendar Views:** [Calender CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/1#issue-2172656711)
    - [GET] Calendar Detail View: `api/calendar/<calendar_id>/`
+   - [GET] Retrieve All Calendars: `api/calendar/`
    - [POST] Calendar Creation View: `api/calendar/`
    - [PUT] Edit Calendar View: `api/calendar/<calendar_id>/`
    - [DELETE] Delete Calendar View: `api/calendar/<calendar_id>/`
