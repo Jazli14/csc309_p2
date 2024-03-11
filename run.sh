@@ -8,4 +8,8 @@ source env/bin/activate
 pip install -r OneOnOne/requirements.txt
 
 # Run Django migrations
+python3 OneOnOne/manage.py makemigrations
 python3 OneOnOne/manage.py migrate
+
+# Run Django server
+python3 OneOnOne/manage.py runserver
