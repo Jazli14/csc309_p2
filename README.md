@@ -11,16 +11,16 @@
    - [DELETE] Delete Contact View: `/accounts/<user_id>/contacts/<contact_id>/`
 
 3. **Calendar Views:** [Calender CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/1#issue-2172656711)
-   - [GET] Calendar Detail View: `/calendar/<calendar_id>/`
-   - [POST] Calendar Creation View: `/calendar/`
-   - [PUT] Edit Calendar View: `/calendar/<calendar_id>/`
-   - [DELETE] Delete Calendar View: `/calendar/<calendar_id>/`
+   - [GET] Calendar Detail View: `api/calendar/<calendar_id>/`
+   - [POST] Calendar Creation View: `api/calendar/`
+   - [PUT] Edit Calendar View: `api/calendar/<calendar_id>/`
+   - [DELETE] Delete Calendar View: `api/calendar/<calendar_id>/`
 
 5. **Time Block Views:**
-   - [GET] Time Blocks List View: `/calendar/<calendar_id>/timeblocks/`
-   - [POST] Add Time Block View: `/calendar/<calendar_id>/timeblocks/`
-   - [PUT] Edit Time Block View: `/timeblocks/<timeblock_id>/`
-   - [DELETE] Delete Time Block View: `/timeblocks/<timeblock_id>/`
+   - [GET] Time Blocks List View: `api/calendar/<calendar_id>/timeblocks/`
+   - [POST] Add Time Block View: `api/calendar/<calendar_id>/timeblocks/`
+   - [PUT] Edit Time Block View: `api/timeblocks/<timeblock_id>/`
+   - [DELETE] Delete Time Block View: `api/timeblocks/<timeblock_id>/`
 
 6. **Invitation Views:**
    - [time-permitting] [GET] Invitation Email View: `/meeting/<meeting_id>/invitation/`
