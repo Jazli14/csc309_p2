@@ -9,6 +9,28 @@ class Calendar(models.Model):
     end_date = models.DateField()
     working_day_start = models.TimeField()
     working_day_end = models.TimeField()
-    
+    title = models.CharField(max_length=255, default="title not set")
+
     def __str__(self):
         return f"Calendar for {self.teacher.username}"
+
+class TimeBlock(models.Model):
+    MEETING_TYPE_CHOICES = [
+        ('booked', 'Booked'),
+        ('pending', 'Pending'),
+        ('blocked', 'Blocked'),
+    ]
+
+    calendar = models.ForeignKey(Calendar, related_name='time_blocks', on_delete=models.CASCADE)
+    title = models.CharField(max_length=255)
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
+    type = models.CharField(
+        max_length=10,
+        choices=MEETING_TYPE_CHOICES,
+        default='pending',
+    )
+
+    def __str__(self):
+        return f"Meeting '{self.title}' on {self.start_time} for {self.calendar.teacher.username} and {self.calendar.student.username}"
+
