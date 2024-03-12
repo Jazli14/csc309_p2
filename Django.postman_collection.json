@@ -178,6 +178,127 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get timeblock list by calendar id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/calendar/1/timeblocks/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"calendar",
+								"1",
+								"timeblocks",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create timeblock by calendar id",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"TA Offic Hour\",\n    \"start_time\": \"2024-03-13T15:00\",\n    \"end_time\": \"2024-03-13T17:00\",\n    \"pending\":\"booked\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/calendar/1/timeblocks/add/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"calendar",
+								"1",
+								"timeblocks",
+								"add",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update timeblock by id",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 2,\n    \"title\": \"TA Offic Hour\",\n    \"start_time\": \"2024-03-13T15:00:00Z\",\n    \"end_time\": \"2024-03-13T17:00:00Z\",\n    \"type\": \"blocked\",\n    \"calendar\": 1\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/timeblocks/2/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"timeblocks",
+								"2",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update timeblock by id Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/timeblocks/2/delete",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"timeblocks",
+								"2",
+								"delete"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		}
