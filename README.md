@@ -19,7 +19,7 @@
    - [PUT] Edit Calendar View: `api/calendar/<calendar_id>/`
    - [DELETE] Delete Calendar View: `api/calendar/<calendar_id>/`
 
-5. **Time Block Views:**
+5. **Time Block Views:** [Timeblock CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/4)
    - [GET] Time Blocks List View: `api/calendar/<calendar_id>/timeblocks/`
    - [POST] Add Time Block View: `api/calendar/<calendar_id>/timeblocks/`
    - [PUT] Edit Time Block View: `api/timeblocks/<timeblock_id>/`
