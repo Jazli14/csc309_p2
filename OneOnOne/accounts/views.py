@@ -51,7 +51,7 @@ def user_login(request):
 @api_view(['PATCH', 'GET', 'DELETE', 'POST'])
 @permission_classes([IsAuthenticated])
 def modify_user_account(request, user_id):
-    if request.method == 'POST':
+    if request.method == 'PATCH':
         if request.user.id != user_id:
             return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
         
