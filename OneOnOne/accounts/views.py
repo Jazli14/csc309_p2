@@ -89,10 +89,7 @@ def modify_user_account(request, user_id):
         # Delete the user account
         user.delete()
         return Response({'message': 'User account deleted successfully'}, status=status.HTTP_200_OK)
-    elif request.method == 'GET':
-        if request.user.id != user_id:
-            return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
-        
+    elif request.method == 'GET':        
         try:
             user = UserAccount.objects.get(pk=user_id)
         except UserAccount.DoesNotExist:
@@ -100,10 +97,7 @@ def modify_user_account(request, user_id):
 
         user_id = request.user.id
         return Response({'user_id': user_id}, status=status.HTTP_200_OK)
-    elif request.method == 'POST':
-        if request.user.id != user_id:
-            return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
-        
+    elif request.method == 'POST':        
         try:
             user = UserAccount.objects.get(pk=user_id)
         except UserAccount.DoesNotExist:
