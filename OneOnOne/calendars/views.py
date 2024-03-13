@@ -82,8 +82,13 @@ class AddTimeBlockView(generics.CreateAPIView):
         calendar_id = self.kwargs['calendar_id']
         try:
             calendar = Calendar.objects.get(id=calendar_id)
-        except Calendar.DoesNotExist:
+        except calendar.DoesNotExist:
             return Response({"message": "Calendar not found"}, status=status.HTTP_404_NOT_FOUND)
+                
+        if request.data.get('priority_flag') and request.data.get('type')=='pending':
+            timeblocks = TimeBlock.objects.filter(calendar=calendar_id, student=request.data.get('student'), priority_flag=True)
+            if timeblocks.exists():
+                return Response({"message": "TimeBlock already prioritized"}, status=status.HTTP_404_NOT_FOUND)
 
         request.data['calendar'] = calendar_id
         serializer = self.get_serializer(data=request.data)
@@ -98,6 +103,11 @@ class EditTimeBlockView(generics.RetrieveUpdateAPIView):
     lookup_url_kwarg = 'pk'  # Using 'pk' as the default lookup field
 
     def put(self, request, *args, **kwargs):
+        if request.data.get('priority_flag') and request.data.get('type')=='pending':
+            timeblocks = TimeBlock.objects.filter(calendar=request.data.get('calendar'), student=request.data.get('student'), priority_flag=True)
+            if timeblocks.exists():
+                return Response({"message": "TimeBlock already prioritized"}, status=status.HTTP_404_NOT_FOUND)
+    
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
@@ -105,6 +115,11 @@ class EditTimeBlockView(generics.RetrieveUpdateAPIView):
         return Response(serializer.data)
 
     def patch(self, request, *args, **kwargs):
+        if request.data.get('priority_flag') and request.data.get('type')=='pending':
+            timeblocks = TimeBlock.objects.filter(calendar=request.data.get('calendar'), student=request.data.get('student'), priority_flag=True)
+            if timeblocks.exists():
+                return Response({"message": "TimeBlock already prioritized"}, status=status.HTTP_404_NOT_FOUND)
+    
         instance = self.get_object()
         serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)

@@ -22,6 +22,7 @@ class TimeBlock(models.Model):
     ]
 
     calendar = models.ForeignKey(Calendar, related_name='time_blocks', on_delete=models.CASCADE)
+    student = models.ForeignKey(UserAccount, related_name='student_time_blocks', on_delete=models.CASCADE, blank=True)
     title = models.CharField(max_length=255)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
@@ -30,7 +31,8 @@ class TimeBlock(models.Model):
         choices=MEETING_TYPE_CHOICES,
         default='pending',
     )
+    priority_flag = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Meeting '{self.title}' on {self.start_time} for {self.calendar.teacher.username} and {self.calendar.student.username}"
+        return f"Meeting '{self.title}' on {self.start_time} for {self.calendar.teacher.username} and {self.student.username}"
 
