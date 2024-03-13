@@ -18,6 +18,7 @@
    - [POST] Calendar Creation View: `api/calendar/`
    - [PUT] Edit Calendar View: `api/calendar/<calendar_id>/`
    - [DELETE] Delete Calendar View: `api/calendar/<calendar_id>/`
+   - [PATCH] adding student View: `api/calendar/<calendar_id>/add_student`
 
 5. **Time Block Views:** [Timeblock CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/4)
    - [GET] Time Blocks List View: `api/calendar/<calendar_id>/timeblocks/`
