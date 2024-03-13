@@ -1,11 +1,11 @@
 ## CSC309 Views and URLs
 
-
-
 1. **User Authentication Views:**
-   - Login View: `/login/`
    - [POST] Register User: `/accounts/users/`
-   - Profile View: `/profile/`
+   - [POST] Login User: `/accounts/users/<user_id>/`
+   - [DELETE] Delete User: `/accounts/users/<user_id>/`
+   - [PATCH] Edit User: `/accounts/users/<user_id>/`
+   - [GET] Retrieve User ID: `/accounts/users/<user_id>/`
 
 2. **Contacts Views:**
    - [GET] Contacts List View: `/accounts/<user_id>/contacts/`
