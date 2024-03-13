@@ -48,7 +48,7 @@ def user_login(request):
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-@api_view(['PATCH'])
+@api_view(['PATCH', 'GET', 'DELETE', 'POST'])
 @permission_classes([IsAuthenticated])
 def modify_user_account(request, user_id):
     if request.method == 'POST':
@@ -89,13 +89,41 @@ def modify_user_account(request, user_id):
         # Delete the user account
         user.delete()
         return Response({'message': 'User account deleted successfully'}, status=status.HTTP_200_OK)
+    elif request.method == 'GET':
+        if request.user.id != user_id:
+            return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = UserAccount.objects.get(pk=user_id)
+        except UserAccount.DoesNotExist:
+            return Response({'error': 'User account not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        user_id = request.user.id
+        return Response({'user_id': user_id}, status=status.HTTP_200_OK)
+    elif request.method == 'POST':
+        if request.user.id != user_id:
+            return Response({'error': 'Unauthorized'}, status=status.HTTP_403_FORBIDDEN)
+        
+        try:
+            user = UserAccount.objects.get(pk=user_id)
+        except UserAccount.DoesNotExist:
+            return Response({'error': 'User account not found'}, status=status.HTTP_404_NOT_FOUND)
+
+        username = request.data.get('username')
+        password = request.data.get('password')
+
+        user = authenticate(username=username, password=password)
+        if user:
+            # Generate JWT tokens
+            refresh = RefreshToken.for_user(user)
+            return Response({
+                'refresh': str(refresh),
+                'access': str(refresh.access_token),
+            }, status=status.HTTP_200_OK)
+        else:
+            return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
 
-
-@api_view(['GET'])
-def get_current_user_id(request):
-    user_id = request.user.id
-    return Response({'user_id': user_id}, status=status.HTTP_200_OK)
 
 @api_view(['GET', 'POST', 'DELETE'])
 @permission_classes([IsAuthenticated])
