@@ -4,7 +4,7 @@ from accounts.models import UserAccount
 
 class Calendar(models.Model):
     teacher = models.ForeignKey(UserAccount, related_name='teacher_calendars', on_delete=models.CASCADE)
-    student = models.ForeignKey(UserAccount, related_name='student_calendars', on_delete=models.CASCADE)
+    students = models.ManyToManyField(UserAccount, related_name='student_calendars')
     start_date = models.DateField()
     end_date = models.DateField()
     working_day_start = models.TimeField()
