@@ -63,6 +63,17 @@ class CalendarAddStudent(generics.GenericAPIView):
             "student": student_data
         }, status=status.HTTP_200_OK)
 
+@permission_classes([IsAuthenticated])    
+class CalendarStudentPriority(generics.ListAPIView):
+    serializer_class = TimeBlockSerializer
+
+    def get_queryset(self):
+        student_username = self.kwargs['username']
+        calendar_id = self.kwargs['calendar_id']
+        student = UserAccount.objects.get(username=student_username)
+        calendar = Calendar.objects.get(id=calendar_id)
+        return TimeBlock.objects.filter(student=student, calendar=calendar, priority_flag=True)
+
 
 
 # TimeBlock Views
