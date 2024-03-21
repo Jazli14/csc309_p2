@@ -19,7 +19,7 @@
    - [PUT] Edit Calendar View: `api/calendar/<calendar_id>/`
    - [DELETE] Delete Calendar View: `api/calendar/<calendar_id>/`
    - [PATCH] adding student View: `api/calendar/<calendar_id>/add_student`
-   - [GET] Student Timeblock Priority View: `calendar/student-priority/<int:calendar_id>/<str:username>/`
+   - [GET] Student Timeblock Priority View: `api/calendar/student-priority/<int:calendar_id>/<str:username>/`
 
 5. **Time Block Views:** [Timeblock CRUD Implementation](https://github.com/Jazli14/csc309_p2/issues/4)
    - [GET] Time Blocks List View: `api/calendar/<calendar_id>/timeblocks/`
